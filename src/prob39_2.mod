@@ -6,7 +6,7 @@
 using CP;
 include "rehearsal_common.mod";
 
-
+dvar int pieces[Pieces] in Pieces;
 dvar int permutations[Pieces] in Pieces;
 
 dexpr int wait_matrix_final[i in Players][j in Pieces] = 
@@ -19,44 +19,45 @@ minimize sum(i in Players) waiting_time[i];
 
 subject to {
 
-	 allDifferent(all (i in Pieces) permutations[i] );
-	
+    inverse(pieces, permutations);
+    //allDifferent(all (i in Pieces) permutations[i] );
+
 }
 
 
 execute {
 
   var ofile = new IloOplOutputFile("out.dat");
-  
+
   ofile.write("rehearsal = [");
   for (var i in thisOplModel.Players){
-  	ofile.write("[");
-  	for (var j in Pieces){
-  		if (j == npieces){
-  			ofile.write(rehearsal[i][j] + "]"); 		
-  		}
-  		else{
-  		  	ofile.write(rehearsal[i][j] + ",");
-  		}
-  	}  
-  
+      ofile.write("[");
+      for (var j in Pieces){
+          if (j == npieces){
+              ofile.write(rehearsal[i][j] + "]");
+          }
+          else{
+                ofile.write(rehearsal[i][j] + ",");
+          }
+      }
+
     if (i == thisOplModel.nplayers){
-    ofile.write("];\n");    
+    ofile.write("];\n");
     }
     else{
-    ofile.write( ", ");    
+    ofile.write( ", ");
     }
   }
-  
+
   ofile.write("permutations = [");
   for (i in Pieces){
-  	if (i == npieces){
-  		  	ofile.write(permutations[i] + "];");
-  	}  
-  	else{
-  	ofile.write(permutations[i] + ",");
- }  	
+      if (i == npieces){
+                ofile.write(permutations[i] + "];");
+      }
+      else{
+      ofile.write(permutations[i] + ",");
+ }
   }
-  
+
   ofile.close();
 }
