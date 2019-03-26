@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="ASCII"?><project>
 	<version>1.0</version>
 	<configs>
-		<config default="true" name="Configuration 1" category="opl">
-			<ref name="src.mod" type="model">
+		<config default="true" name="prob039" category="opl">
+			<ref name="prob039.mod" type="model">
 			</ref>
-			<ref name="src.ops" type="setting">
+			<ref name="data.dat" type="data">
 			</ref>
-			<ref name="src.dat" type="data">
+		</config>
+		<config default="false" name="Configuration 1" category="opl">
+			<ref name="prob39_2.mod" type="model">
+			</ref>
+			<ref name="data2.dat" type="data">
 			</ref>
 		</config>
 	</configs>

@@ -1,0 +1,14 @@
+/*********************************************
+ * OPL 12.5 Data
+ * Author: nono
+ * Creation Date: 2 oct. 2014 at 18:12:32
+ * This is the problem from the Choco v 2.1 example 
+ *********************************************/
+npieces=5;
+nplayers=3;
+rehearsal = [
+	   [1,1,0,1,0],
+       [0,1,1,0,1],
+       [1,1,0,1,1]   
+];
+durations=[4,6,3,5,7];
