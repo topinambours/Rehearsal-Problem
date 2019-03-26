@@ -1,4 +1,0 @@
-npieces = 3;
-durations = [5, 5, 5];
-nplayers = 3;
-rehearsal = [[1,0,1], [0,1,1], [0,1,0]];
